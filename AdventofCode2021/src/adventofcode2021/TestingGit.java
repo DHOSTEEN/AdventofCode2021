@@ -10,4 +10,5 @@ package adventofcode2021;
  */
 public class TestingGit {
     //wibble
+    public TestingGit(){}
 }
