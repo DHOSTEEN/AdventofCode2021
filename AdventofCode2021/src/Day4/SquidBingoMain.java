@@ -29,9 +29,16 @@ private static String file_location = "E:\\Netbeans\\AdventofCode2021\\AdventInp
         scan.nextLine();//skips input
         BingoBoard board = new BingoBoard();
         String[] raw_board = string_snippet();
+
         board.createBoard(raw_board);
         board.printStandardBoard();
-        System.out.println("COLUMNS");
+        board.printColomBoard();
+
+        /*testing logic*/
+
+        BoardLogic logic = new BoardLogic();
+        logic.markNumber(board, "10");
+        board.printStandardBoard();
         board.printColomBoard();
 
 

@@ -12,6 +12,14 @@ import java.util.ArrayList;
  */
 public class BingoBoard {
 
+    public ArrayList<ArrayList<PairBoolString>> getBoard_rows() {
+        return board_rows;
+    }
+
+    public ArrayList<ArrayList<PairBoolString>> getBoard_cols() {
+        return board_cols;
+    }
+
 private ArrayList<ArrayList<PairBoolString>> board_rows;
 private ArrayList<ArrayList<PairBoolString>> board_cols;
 
@@ -69,11 +77,15 @@ private ArrayList<ArrayList<PairBoolString>> board_cols;
         }
         board_cols.add(col);
     }
+   
+    /**debugging code*/
     
     public void printStandardBoard(){
+        System.out.println("ROWS:");
         printBoard(board_rows);
     }
     public void printColomBoard(){
+        System.out.println("COLS:");
         printBoard(board_cols);}
     
     private void printBoard(ArrayList<ArrayList<PairBoolString>> board){
@@ -84,7 +96,7 @@ private ArrayList<ArrayList<PairBoolString>> board_cols;
     }
     private void printRows(ArrayList<PairBoolString> list){
         for(int i=0; i<list.size();i++){
-            System.out.print(" :" + list.get(i).getNum() + "- ");}
+            System.out.print(" :" + list.get(i).getNum() + "- " + list.get(i).isMarked());}
     }
     
 }

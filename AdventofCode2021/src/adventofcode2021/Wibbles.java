@@ -9,5 +9,5 @@ package adventofcode2021;
  * @author Daniel
  */
 public class Wibbles {
-    
+    /***WIBBLES*/
 }
