@@ -15,24 +15,21 @@ import java.util.Scanner;
  */
 public class AdventInputReader {
   
-    private final File file_obj;
-    private Scanner obj_Reader;
+    protected final File file_obj;
+    protected Scanner obj_Reader;
 
     public AdventInputReader(String filepath){
 
         file_obj = new File(filepath);
- 
+        try{
+               obj_Reader = new Scanner(file_obj);
+        }catch(FileNotFoundException e){
+              // e.printStackTrace();
+        }
     }
 
     public Scanner getFile_obj() throws NullPointerException{
 
-        try{
-            obj_Reader = new Scanner(file_obj);
-        }catch(FileNotFoundException e){
-           // e.printStackTrace();
-        }
-
-        if(obj_Reader == null){throw new NullPointerException();}
         return obj_Reader;
     }
 

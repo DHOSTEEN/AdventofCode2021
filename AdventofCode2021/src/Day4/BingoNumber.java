@@ -8,12 +8,12 @@ package Day4;
  *
  * @author Daniel
  */
-public class PairBoolString {
+public class BingoNumber {
 
     private boolean is_marked;
     private String num;
 
-    public PairBoolString(String num){
+    public BingoNumber(String num){
         this.num = num;
         is_marked = false;
     }
