@@ -4,16 +4,16 @@
  */
 package InputReaders;
 
-import java.io.FileNotFoundException;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Scanner;
+import java.util.NoSuchElementException;
+
 
 /**
  *
  * @author Daniel
  */
 public class BingoReader extends AdventInputReader {
+
+private final int BINGO_BOARD_DIMENTIONS = 5;
 
     public BingoReader(String file_path){
         super(file_path);
@@ -25,5 +25,14 @@ public String[] bingoNumbers(){
     String[] individual_numbers = all_num.split(",");
     return individual_numbers;
 }
-    
+/**Assumes format input starts with a blank line*/
+    public String[] readBingos() throws NoSuchElementException{
+
+        String[] bingo_board_rows = new String[BINGO_BOARD_DIMENTIONS];
+        obj_Reader.nextLine();
+        for(int i =0; i< bingo_board_rows.length;i++){
+            bingo_board_rows[i] = obj_Reader.nextLine();
+        }
+        return bingo_board_rows;
+    }
 }

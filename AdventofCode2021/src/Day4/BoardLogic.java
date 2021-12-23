@@ -4,6 +4,7 @@
  */
 package Day4;
 
+import com.sun.org.apache.xerces.internal.parsers.IntegratedParserConfiguration;
 import java.util.ArrayList;
 
 /**
@@ -94,6 +95,19 @@ private void markCol(int row, int col){
 
         }
         return true;
+    }
+
+    public int sumUnmarkedNumbers(BingoBoard board){
+        current_board = board;
+        int sum =0;
+        for(ArrayList<BingoNumber> row : current_board.getBoard_rows()){
+            for(BingoNumber num : row){
+                if(!num.isMarked()){
+                    sum += Integer.parseInt(num.getNum());
+                }
+            }
+        }
+        return sum;
     }
     
 }

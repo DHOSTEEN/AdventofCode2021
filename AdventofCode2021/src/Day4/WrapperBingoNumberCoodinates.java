@@ -10,7 +10,7 @@ package Day4;
  */
 public class WrapperBingoNumberCoodinates {
 
-    public boolean isIs_true() {
+    public boolean is_true() {
         return is_true;
     }
 
