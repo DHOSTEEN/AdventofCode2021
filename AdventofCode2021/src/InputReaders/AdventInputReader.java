@@ -24,7 +24,7 @@ public class AdventInputReader {
         try{
                obj_Reader = new Scanner(file_obj);
         }catch(FileNotFoundException e){
-              // e.printStackTrace();
+            e.printStackTrace();
         }
     }
 
