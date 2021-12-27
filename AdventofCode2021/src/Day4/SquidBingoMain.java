@@ -25,7 +25,7 @@ private static WrapperBoardNumber winner;
 
 private static BoardLogic logic;
 
-private static String file_location = "E:\\Netbeans\\AdventofCode2021\\AdventInputs\\AdventInput04_data.txt";
+private static String file_location = "E:\\Netbeans\\AdventofCode2021\\AdventInputs\\AdventInput04_testdata.txt";
 
 
     public static void main (String[] agrs){
@@ -49,8 +49,8 @@ private static String file_location = "E:\\Netbeans\\AdventofCode2021\\AdventInp
             }catch(NoSuchElementException e){is_running = !is_running;}
                
         }
-        System.out.println("SUCCESS");
-        System.out.println(all_bingos.size());
+        //System.out.println("SUCCESS");
+        //System.out.println(all_bingos.size());
        // print_allBoards();
         boolean house = false;
         int i =0;
@@ -75,6 +75,8 @@ private static String file_location = "E:\\Netbeans\\AdventofCode2021\\AdventInp
 
 
 
+
+
     }    
     private static boolean cycleBoards(String val){
         boolean found_bingo = false;
@@ -82,17 +84,17 @@ private static String file_location = "E:\\Netbeans\\AdventofCode2021\\AdventInp
         while(i<all_bingos.size() && !found_bingo){
            WrapperBingoNumberCoodinates test = logic.markNumber(all_bingos.get(i), val);
             if(test.is_true()){
-                System.out.println("IS TRUE");
+               // System.out.println("IS TRUE");
                 found_bingo = logic.isWin(test.getMatrix_val_row(), test.getMatrix_val_col(), all_bingos.get(i));
                 if(found_bingo){
-                    all_bingos.get(i).printStandardBoard();
+                    //all_bingos.get(i).printStandardBoard();
                     winner = new WrapperBoardNumber(Integer.parseInt(val), all_bingos.get(i));
 
                 }
             }
             i++;
         }
-        System.out.println("FREEEEE");
+        //System.out.println("FREEEEE");
         return found_bingo;
     }
     private static void print_allBoards(){

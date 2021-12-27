@@ -1,6 +1,6 @@
 /*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
+ * Click nbfs://nbhost///SystemFile//System/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost///SystemFile//System/Templates/Classes/Class.java to edit this template
  */
 package Day4;
 
@@ -20,8 +20,8 @@ public class BingoBoard {
         return board_cols;
     }
 
-private ArrayList<ArrayList<BingoNumber>> board_rows;
-private ArrayList<ArrayList<BingoNumber>> board_cols;
+protected ArrayList<ArrayList<BingoNumber>> board_rows;
+protected ArrayList<ArrayList<BingoNumber>> board_cols;
 
 //private ArrayList<PairBoolInt> row;
 //private ArrayList<PairBoolInt> col;
@@ -53,7 +53,7 @@ private ArrayList<ArrayList<BingoNumber>> board_cols;
                 row.add(new BingoNumber(row_parts[i]));
             }
         }
-        board_rows.add(row);
+        board_rows.add(row);       
     }
     
     private void createCols(){
@@ -71,9 +71,8 @@ private ArrayList<ArrayList<BingoNumber>> board_cols;
         ArrayList<BingoNumber> col = new ArrayList<>();
         
         for(int i =0; i<board_rows.size(); i++){
-        
-            col.add(board_rows.get(i).get(pos));
-           
+            
+            col.add(board_rows.get(i).get(pos));           
         }
         board_cols.add(col);
     }
@@ -96,7 +95,8 @@ private ArrayList<ArrayList<BingoNumber>> board_cols;
     }
     private void printRows(ArrayList<BingoNumber> list){
         for(int i=0; i<list.size();i++){
-            System.out.print(" :" + list.get(i).getNum() + "- " + list.get(i).isMarked());}
+            System.out.print(" :" + list.get(i).getNum() + "- " + list.get(i).isMarked());
+        }
     }
     
 }

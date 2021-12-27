@@ -1,6 +1,6 @@
 /*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
+ * Click nbfs://nbhost///SystemFile//System/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost///SystemFile//System/Templates/Classes/Class.java to edit this template
  */
 package Day4;
 
@@ -28,9 +28,9 @@ public WrapperBingoNumberCoodinates markNumber(BingoBoard board, String val){
     current_board = board;
     int i =0;
     boolean found = false;
-    System.out.println("HII: " + val);
+    //System.out.println("HII: " + val);
     while(i<current_board.getBoard_rows().size() && !found){
-        System.out.println("in initial loop");
+        //System.out.println("in initial loop");
         found = markRow(current_board.getBoard_rows().get(i), val, i);
         i++;
     }
@@ -51,10 +51,10 @@ private boolean markRow(ArrayList<BingoNumber> row, String val, int matrix_row){
     int i =0; 
     boolean found = false;
         while(i<row.size() && !found){
-            System.out.println("in row loop");
+            //System.out.println("in row loop");
             if(val.equals(row.get(i).getNum())){
                 row.get(i).setMarked();
-                System.out.println("ROW FOUND: " + row.get(i).getNum());
+                //System.out.println("ROW FOUND: " + row.get(i).getNum());
                 found = true;
                 markCol(i, matrix_row);
                 matrix_val_row = matrix_row;
@@ -70,7 +70,7 @@ private boolean markRow(ArrayList<BingoNumber> row, String val, int matrix_row){
 private void markCol(int row, int col){
 
     current_board.getBoard_cols().get(row).get(col).setMarked();
-    System.out.println("COL FOUND: " + current_board.getBoard_cols().get(row).get(col).getNum());
+    //System.out.println("COL FOUND: " + current_board.getBoard_cols().get(row).get(col).getNum());
 }
 
 /**returns true if and only if all numbers are marked in EITHER row or colum*/
