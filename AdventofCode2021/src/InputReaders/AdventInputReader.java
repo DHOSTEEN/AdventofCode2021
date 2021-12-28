@@ -37,12 +37,6 @@ public class AdventInputReader {
 
         ArrayList<Integer> list = new ArrayList<>();
 
-         try{
-            obj_Reader = new Scanner(file_obj);
-        }catch(FileNotFoundException e){
-           // e.printStackTrace();
-        }
-
         while(obj_Reader.hasNextLine()){
 
             list.add(obj_Reader.nextInt());
@@ -51,13 +45,14 @@ public class AdventInputReader {
         return list;
     }
 
-        public void testScan(Scanner scan){
 
-            while(scan.hasNextLine()){
+    public void testScan(Scanner scan){
 
-                System.out.println(scan.nextLine());
-            }
+        while(scan.hasNextLine()){
+
+            System.out.println(scan.nextLine());
         }
+    }
 
     
 }//end of class

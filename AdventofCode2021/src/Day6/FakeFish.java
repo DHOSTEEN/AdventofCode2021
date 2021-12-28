@@ -15,9 +15,8 @@ import java.util.Scanner;
 public class FakeFish {
 
     private static ArrayList<Integer> fish;
-private static ArrayList<Integer> day_tracker;
+    private static ArrayList<Integer> day_tracker;
     private static LanternFishReader obj;
-    private static Scanner scan;
     private static final int DAYS = 256;
     private static String file_location = "E:\\Netbeans\\AdventofCode2021\\AdventInputs\\AdventInput06_data.txt";
 
