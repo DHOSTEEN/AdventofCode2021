@@ -234,7 +234,7 @@ public void unscramble(){
     }
 //A == 7(1) - ok, no req
     private void findA(){
-        System.out.println("???");
+       /* System.out.println("???");
         boolean test = true;
         for(int i =0; i<seven.length;i++){
             for(int j =0; j<one.length; j++){   
@@ -242,8 +242,9 @@ public void unscramble(){
             }
             if(test){segments.put("A", seven[i]);}
             test = true;
-        }
-        /*int x = -1;
+        }*/
+        int x = -1;
+        Arrays.sort(one);
         for(int i =0;i<seven.length;i++){
             x = Arrays.binarySearch(one, seven[i]);
             System.out.println("X: " + x);
@@ -251,7 +252,7 @@ public void unscramble(){
             System.out.println("ONE: " + Arrays.toString(seven));
             System.out.println("ELEMENT: " + seven[i]);
             if(x<0){segments.put("A", seven[i]);}
-        }*/
+        }
     }
 //G == 9(A - 4) == 6 segments (3 poss) -- BUT! i KNOW the 4 MUST have B,C,D,F
     private void findG(String[] info){
