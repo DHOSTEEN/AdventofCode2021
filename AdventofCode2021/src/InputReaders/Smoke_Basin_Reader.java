@@ -13,12 +13,14 @@ import java.util.Arrays;
  */
 public class Smoke_Basin_Reader extends AdventInputReader{
 
-ArrayList<int[]> array;
-
-private String arr_length;
+    //private ArrayList<int[]> array;
+    //private String arr_length;
     public Smoke_Basin_Reader(String file_path){super(file_path);}
 
-    public int[][] getHeighttMap(){
+public int[][] getHeightMap(){
+    return get2DintArray();
+}
+    /*public int[][] getHeighttMap(){
         array = new ArrayList<>();
         if(obj_Reader.hasNext()){
                 arr_length = obj_Reader.nextLine();
@@ -42,6 +44,6 @@ private String arr_length;
             row[i] = Integer.parseInt(arr[i]);
         }
         return row;
-    }
+    }*/
     
 }

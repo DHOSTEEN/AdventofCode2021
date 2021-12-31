@@ -34,7 +34,7 @@ private static SmokeLogic logic;
 
     public static void main(String[] args){
         obj = new Smoke_Basin_Reader(file_location);
-        int[][] height_map = obj.getHeighttMap();
+        int[][] height_map = obj.getHeightMap();
         System.out.println(height_map.length);
         for(int[] arr : height_map){
 
