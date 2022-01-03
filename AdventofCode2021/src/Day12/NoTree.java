@@ -4,6 +4,7 @@
  */
 package Day12;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 
 /**
@@ -12,5 +13,24 @@ import java.util.HashMap;
  */
 public class NoTree {
 
-private HashMap<String, String> uniques;    
+private HashMap<String, ArrayList<String>> uniques; 
+
+    public NoTree(){
+        uniques = new HashMap<>();
+    }
+    public void add(String parent, String child){
+
+        if(uniques.get(parent) != null){
+
+            uniques.get(parent).add(child);
+        }
+        else{
+            ArrayList<String> children = new ArrayList<>();
+            children.add(child);
+            uniques.put(parent, children);
+        }
+    }   
+    public HashMap<String, ArrayList<String>> getMap(){return uniques;}
 }
+
+
