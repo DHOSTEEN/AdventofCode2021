@@ -15,7 +15,7 @@ import java.util.Arrays;
 public class NoTreeMain {
     
     private static PassagePathingReader obj_Reader;
-    private static String file_location = "E:\\Netbeans\\AdventofCode2021\\AdventInputs\\AdventInput12_example.txt";
+    private static String file_location = "E:\\Netbeans\\AdventofCode2021\\AdventInputs\\AdventInput12_data.txt";
 
 public static void main(String[] args){
 
