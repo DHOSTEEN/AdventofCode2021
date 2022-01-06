@@ -106,7 +106,7 @@ final_nodes = new HashMap<>();
                     best = pathbuilder.get(key);
                     bestKey = key;
                     found = true;
-                    System.out.println("F COST: " +successors.get(key));
+                    //System.out.println("F COST: " +successors.get(key));
                     node = nodes.get(key);
                     break;
                 }
@@ -135,16 +135,12 @@ final_nodes = new HashMap<>();
             open.remove(key_q);
             nodes.remove(key_q);
             pathcost.remove(key_q);
-final_nodes.remove(key_q);
+            final_nodes.remove(key_q);
         }
         System.out.println("BEST: " + best + " AT: " + bestKey);
-        System.out.println(the_path.toString());
+        //System.out.println(the_path.toString());
 
-    while(node != null){
-    System.out.println(node.getCol() + "- "+node.getRow());
-            node = node.getParent();
-        
-    }
+   
     }
 
 private boolean has_in_Open(String key, long f){
@@ -207,6 +203,7 @@ int row = Integer.parseInt(key_split[1]);
     }
 
 }
+/*FROM STACKOVERFLOW - getMin()*/
     private String getMin(){
         Entry<String, Long> min = null;
         for (Entry<String, Long> entry : open.entrySet()) {
@@ -216,5 +213,11 @@ int row = Integer.parseInt(key_split[1]);
         }
         //System.out.println("MIN: " +min.getKey() + " VAL:" + min.getValue());
         return min.getKey();
+    }
+    public void printPath(){ 
+        while(node != null){
+            System.out.println(node.getCol() + "- "+node.getRow());
+            node = node.getParent();   
+        }
     }
 }

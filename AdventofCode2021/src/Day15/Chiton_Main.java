@@ -15,7 +15,7 @@ import java.util.stream.Collectors;
 public class Chiton_Main {
 
     private static AdventInputReader obj_Reader;
-    private static String file_location = "E:\\Netbeans\\AdventofCode2021\\AdventInputs\\AdventInput15_testdata.txt";
+    private static String file_location = "E:\\Netbeans\\AdventofCode2021\\AdventInputs\\AdventInput15_data.txt";
 
     /**
      *
@@ -26,19 +26,26 @@ public class Chiton_Main {
         int[][] input = obj_Reader.get2DintArray();
         Arrays.asList(input).forEach(arr -> {System.out.println(Arrays.toString(arr));});
 
-        Chiton_Logic logic = new Chiton_Logic(input);
-        AlgorithmAStar a_star = new AlgorithmAStar(input);
+        AlgorithmAStar a_star = new AlgorithmAStar(input);// works on testdata but too slow for real data
         long start = System.nanoTime();
-        //a_star.findPath();
+       // a_star.findPath();
        // logic.findPath();
-        long end = System.nanoTime();
-        System.out.println("TIME: " + (end - start)/1000000 + "ms");
+  
         HashStar star = new HashStar(input);
         star.findPath();
-        System.out.println("input" + input.length);
+        long end = System.nanoTime();
+        System.out.println("TIME: " + (end - start)/1000000 + "ms");
+
+
+        System.out.println("BIG PATH");
+        start = System.nanoTime();
         ArrayGrowth growth = new ArrayGrowth(input);
         growth.makeBig(input);
-        growth.printBIGARR();
+        star = new HashStar(growth.getBig());
+        star.findPath();
+        end = System.nanoTime();
+        System.out.println("BIG TIME: " + (end - start)/1000000 + "ms");
+        //growth.printBIGARR();
     }
     
 }
