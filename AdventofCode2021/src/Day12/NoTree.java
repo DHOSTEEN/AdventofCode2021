@@ -6,6 +6,9 @@ package Day12;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.LinkedHashSet;
+import java.util.Set;
+import java.util.concurrent.ConcurrentHashMap;
 
 /**
  *
@@ -14,12 +17,24 @@ import java.util.HashMap;
 public class NoTree {
 
 private HashMap<String, ArrayList<String>> uniques; 
+private Set<String> small_caves;
 
     public NoTree(){
         uniques = new HashMap<>();
+        small_caves = new LinkedHashSet<>();
     }
     public void add(String parent, String child){
 
+        if(Character.isLowerCase(parent.toCharArray()[0]) && !parent.equals("end") && !parent.equals("start")){
+            if(!small_caves.contains(parent)){
+                small_caves.add(parent);
+            }
+        }
+        if(Character.isLowerCase(child.toCharArray()[0]) && !child.equals("end") && !child.equals("start")){
+            if(!small_caves.contains(child)){
+                small_caves.add(child);
+            }
+        }
         if(uniques.containsKey(parent)){
 
             uniques.get(parent).add(child);
@@ -47,6 +62,7 @@ private HashMap<String, ArrayList<String>> uniques;
         }
     }   
     public HashMap<String, ArrayList<String>> getMap(){return uniques;}
+    public Set<String> getSmallCaves(){return small_caves;}
 }
 
 

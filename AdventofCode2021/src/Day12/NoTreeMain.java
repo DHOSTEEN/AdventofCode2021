@@ -24,14 +24,15 @@ public static void main(String[] args){
     NoTreeLogic logic = new NoTreeLogic(obj_Reader.getNode());
     obj_Reader.getAllNodes().forEach(arr -> logic.buildMap(arr));
     logic.printMap();
-    ArrayList<ArrayList<String>> list = logic.buildPath();
+    /*ArrayList<ArrayList<String>> list = logic.buildPath();
     System.out.println(list.size());
     list.forEach(str -> { System.out.println("");
         str.forEach(arr -> {
         System.out.print(arr + "-");
         });
-    });
+    });*/
+    System.out.println(logic.buildHashPath().size());
 
-
+//99138
 }
 }
