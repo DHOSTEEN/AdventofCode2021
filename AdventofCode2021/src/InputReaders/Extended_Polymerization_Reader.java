@@ -20,7 +20,7 @@ public class Extended_Polymerization_Reader extends AdventInputReader{
         ArrayList<String[]> list = new ArrayList<>();
 
         while(obj_Reader.hasNext()){
-            list.add(obj_Reader.nextLine().split("->"));
+            list.add(obj_Reader.nextLine().split(" -> "));
         }
         return list;
     }
