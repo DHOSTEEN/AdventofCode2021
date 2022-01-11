@@ -10,16 +10,54 @@ package day18;
  */
 public class SnailFishElemental extends SnailFishNumber {
 
-    private int elemental_value;
+    public int getElemental_value() {
+        return elemental_value;
+    }
 
-    public SnailFishElemental(int elemental_value, int depth) {
+    public void setElemental_value(int elemental_value) {
         this.elemental_value = elemental_value;
-        if(depth == 4){is_Four_deep = true;}
-        else{is_Four_deep = false;}
+    }
+
+    protected int elemental_value;
+
+    public SnailFishElemental(int elemental_value) {
+        this.elemental_value = elemental_value;
     }
 @Override
 protected String printNumber(){
     return elemental_value + "";
 }
+@Override
+protected int getValue(){return elemental_value;}
+@Override
+protected void setParent(SnailFishNumber parent){
+    this.parent = parent;
+}
+
+    @Override
+    protected void explode(){
+        System.out.println("BOOM!!");
+        if(parent != null){
+            SnailFishNumber ancestory = parent;
+            while(!(ancestory.left instanceof SnailFishElemental)){
+                ancestory = ancestory.parent;
+            }
+            if(ancestory.left instanceof SnailFishElemental){
+                 ((SnailFishElemental)parent.left).elemental_value += elemental_value;
+            }
+            ancestory = parent;
+            while(!(ancestory.right instanceof SnailFishElemental)){
+                ancestory = ancestory.parent;
+            }
+            if(ancestory.right instanceof SnailFishElemental){
+               ((SnailFishElemental)parent.right).elemental_value += elemental_value;
+            }
+        }
+            //parent.left += left; 
+    }
+    private void explodeHelper(){
+    }
 
 }
+    
+

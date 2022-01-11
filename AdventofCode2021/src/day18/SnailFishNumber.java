@@ -12,47 +12,45 @@ import java.util.ArrayList;
  */
 public class SnailFishNumber {
 
-
-static ArrayList<RawSnailNumber> pairs = new ArrayList<>();
-static ArrayList<String> simple_pairs = new ArrayList<>();
-    
+    protected SnailFishNumber parent;
     protected SnailFishNumber left;
     protected SnailFishNumber right;
     protected boolean is_Four_deep;
+    protected int depth;
 
     public void setLeft(SnailFishNumber left){this.left = left;}
     public void setRight(SnailFishNumber right){this.right = right;}
 
     public SnailFishNumber getLeft(){return left;}
     public SnailFishNumber getRight(){return right;}
+    protected boolean is_Four_Deep(){return is_Four_deep;}
+    protected void setParent(SnailFishNumber parent){this.parent = null;}
 
     protected String printNumber(){
         return "I SHOULD NEVER BE";
     }
 
 
-public static SnailFishNumber betterBuild(String snail_num, int depth){
+public static SnailFishNumber betterBuild(String snail_num, int depth, SnailFishNumber parent){
 
     SnailFishNumber snail_number = null;
     snail_num = snail_num.substring(1,snail_num.length()-1);
-    System.out.println("AM: " + snail_num);
     String first = bracketCount(snail_num);
-    System.out.println("first: " + first);
     String second = snail_num.substring(first.length() +1);
-    System.out.println("Second: " + second);
 
     if(first.length()==1 && second.length()==1){
-        snail_number = new SnailFishPair(new SnailFishElemental(Integer.parseInt(first), depth), new SnailFishElemental(Integer.parseInt(second), depth));
+        snail_number = new SnailFishPair(new SnailFishElemental(Integer.parseInt(first)), new SnailFishElemental(Integer.parseInt(second)), depth);
     }
     else if(first.length() ==1){
-        snail_number = new SnailFishPair(new SnailFishElemental(Integer.parseInt(first), depth), betterBuild(second, depth +1));
+        snail_number = new SnailFishPair(new SnailFishElemental(Integer.parseInt(first)), betterBuild(second, depth +1, snail_number), depth);
     }
     else if(second.length() ==1){
-        snail_number = new SnailFishPair(betterBuild(first, depth +1), new SnailFishElemental(Integer.parseInt(second), depth));
+        snail_number = new SnailFishPair(betterBuild(first, depth +1, snail_number), new SnailFishElemental(Integer.parseInt(second)), depth);
     }
     else{
-    snail_number = new SnailFishPair(betterBuild(first, depth +1), betterBuild(second, depth +1));
+        snail_number = new SnailFishPair(betterBuild(first, depth +1, snail_number), betterBuild(second, depth +1, snail_number), depth);
     }
+//    /snail_number.setParent(parent);
     return snail_number;
 }
     private static String bracketCount(String snail_num){
@@ -83,4 +81,8 @@ public static SnailFishNumber betterBuild(String snail_num, int depth){
         }
             return "";
     }
+
+    protected void explode(){System.out.println("NEVER ME");}
+    protected int getValue(){
+    return 0;}
 }
