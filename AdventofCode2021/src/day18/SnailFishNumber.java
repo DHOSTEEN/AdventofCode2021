@@ -18,6 +18,13 @@ public class SnailFishNumber {
     protected boolean is_Four_deep;
     protected int depth;
 
+    public void setOrdered(ArrayList<SnailFishNumber> ordered) {
+        this.ordered = ordered;
+    }
+
+protected ArrayList<SnailFishNumber> ordered = new ArrayList<>();
+protected ArrayList<String> elements = new ArrayList<>();
+
     public void setLeft(SnailFishNumber left){this.left = left;}
     public void setRight(SnailFishNumber right){this.right = right;}
 
@@ -29,6 +36,13 @@ public class SnailFishNumber {
     protected String printNumber(){
         return "I SHOULD NEVER BE";
     }
+    protected void explode(){System.out.println("NEVER ME");}
+    protected long getValue(){return 0;}
+    protected void split(){}
+    protected SnailFishNumber add(SnailFishNumber snail_number){return null;}
+    protected void updateDepth(){}
+    protected void makeList(ArrayList<SnailFishNumber> list){}
+protected long calcMag(){return 0L;}
 
 
 public static SnailFishNumber betterBuild(String snail_num, int depth, SnailFishNumber parent){
@@ -76,13 +90,13 @@ public static SnailFishNumber betterBuild(String snail_num, int depth, SnailFish
     private static String elementalNumber(String snail_num){
         for(int i =0; i<snail_num.length(); i++){
             if(snail_num.charAt(i) == '[' || snail_num.charAt(i)==']' || snail_num.charAt(i)==','){
+
                 return snail_num.substring(0,i);
             }
         }
             return "";
     }
 
-    protected void explode(){System.out.println("NEVER ME");}
-    protected int getValue(){
-    return 0;}
+
+    
 }
