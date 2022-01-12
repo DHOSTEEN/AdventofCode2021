@@ -59,9 +59,8 @@ public class SubmarineScanner {
 	
 	public void findAbsoluteDistance() {
 		for(int i =0; i<coordinates.size();i++) {
-			System.out.println("CHAR TEST: ");
-			System.out.println("IS: " + i);
-			System.out.println("IS NOW: " + (char)(i+65));
+
+			//System.out.println("IS NOW: " + (char)(i+65));
 			absoluteHelper(coordinates.get(i),(char)(i+65));
 		}
 	}
@@ -79,7 +78,10 @@ public class SubmarineScanner {
 
 					for(int itr =0; itr<compare_coord.length; itr++) {
 						
-						int raw_input =  Math.subtractExact(Integer.parseInt(raw_coord[itr]), Integer.parseInt(compare_coord[itr]));
+						//System.out.println("RAW: " + from_coords + " - " + to_coords);
+						//System.out.println("TEST: " + Integer.parseInt(raw_coord[itr]) + " : " + Integer.parseInt(compare_coord[itr]));
+//int raw_input = Math.subtractExact(Integer.parseInt(raw_coord[itr]), Integer.parseInt(compare_coord[itr]));
+						int raw_input = Math.abs(Integer.parseInt(raw_coord[itr]) - Integer.parseInt(compare_coord[itr]));
 						set_input += raw_input + ":";
 	
 					}
