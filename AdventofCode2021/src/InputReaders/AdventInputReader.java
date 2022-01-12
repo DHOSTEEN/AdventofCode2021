@@ -47,7 +47,8 @@ public class AdventInputReader {
 
         return list;
     }
-    public int[][] get2DintArray(){
+    @SuppressWarnings("unused")
+	public int[][] get2DintArray(){
 
         array = new ArrayList<>();
         if(obj_Reader.hasNext()){
