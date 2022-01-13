@@ -37,17 +37,26 @@ public class SubmarineScanner {
 		String[] raw_coord = from_coords.split(",");
 		String set_input;
 		String to_coords ="";
+		double raw_input = 0;
+		
+		double from_x = Double.parseDouble(raw_coord[0]);
+		double from_y = Double.parseDouble(raw_coord[1]);
+		double from_z = Double.parseDouble(raw_coord[2]);
+		 // return Math.sqrt(Math.pow(x - p.getxCoord(), 2) + Math.pow(y - p.getyCoord(), 2) + Math.pow(z - p.getzCoord(), 2));
+		
 		for(int i =0; i<list.size(); i++) {
 			set_input = "";
 			if(!list.get(i).equals(from_coords)){
 				to_coords = list.get(i);
 				String[] compare_coord = list.get(i).split(",");
-					for(int itr =0; itr<compare_coord.length; itr++) {
-						
-						int raw_input =  Math.subtractExact(Integer.parseInt(raw_coord[itr]), Integer.parseInt(compare_coord[itr]));
-						set_input += raw_input + "|";
-	
-					}
+				
+				double to_x = Double.parseDouble(compare_coord[0]);
+				double to_y = Double.parseDouble(compare_coord[1]);
+				double to_z = Double.parseDouble(compare_coord[2]);			
+				
+				raw_input = Math.sqrt(Math.pow(from_x - to_x, 2) + Math.pow(from_y - to_y, 2) + Math.pow(from_z - to_z, 2));
+				
+				set_input += raw_input;	
 			}
 			if(!set_input.isEmpty()) {
 				absolute_distance.put("(" + from_coords + "|" + to_coords +")", "("+ set_input+ ")");
