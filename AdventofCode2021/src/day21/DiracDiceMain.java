@@ -1,18 +1,12 @@
 package day21;
 
-import java.io.IOException;
-import java.nio.file.Files;
-import java.nio.file.Path;
-import java.util.List;
+import InputReaders.MyUtils;
 
 public class DiracDiceMain {
 	
 	public static void main(String[] args) {
-		
-		try {		
-			List<String> list = Files.readAllLines(Path.of(DiracDiceMain.class.getResource("/input.txt").getPath()));
-		}catch(IOException e) {}
+		MyUtils utils = new MyUtils();
+		utils.readInput("input.txt");
 	}
-
 
 }
