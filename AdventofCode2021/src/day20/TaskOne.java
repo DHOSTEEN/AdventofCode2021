@@ -26,7 +26,7 @@ public class TaskOne {
 		//System.out.println(inf_image.getIndexNumber(3, 1));
 		inf_image.showImage();
 		for(int i =0; i<2; i++) {
-			System.out.println(i % 2 == 1);
+			//System.out.println(i % 2 == 1);
 			inf_image.enhanceImage(i);
 			inf_image.showImage();
 		}

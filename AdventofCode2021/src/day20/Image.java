@@ -38,9 +38,10 @@ public class Image {
 	/**actual pixel is col-1, row-1*/
 	public void enhanceImage(int i) {
 		
+		expandView(i);
 		image_step = new ArrayList<>(infinate_image_view);
 		
-		expandView(i);
+		
 		
 		up_lim = false;
 		down_lim = false;
@@ -87,7 +88,8 @@ public class Image {
 		if(row + 1 < 2) {
 			left_lim = true;
 		}
-		if(row + 1 > (image_step.get(0).length() -2)) {
+		if(row + 1 > (image_step.get(0).length() -3)) {
+			System.out.println("I BE TRUE");
 			right_lim = true;
 		}
 		if(col + 1 > (image_step.size()-2)) {
@@ -174,27 +176,34 @@ private void expandView(int pos){
 	
 	String padding = "";
 	if(pos % 2 == 1) {
-		padding = "#";
+		padding = ".";
 	}
 	else {padding = ".";}
 	blank_line = "";
+	
 	//infinate_image_view.forEach(str -> str += "..");
 	if(left_lim) {
+		System.out.println("HI");
 		for(int i =0; i<infinate_image_view.size(); i++) {
-			infinate_image_view.set(i,padding + padding+ infinate_image_view.get(i));
+			infinate_image_view.set(i, padding + padding+ infinate_image_view.get(i));
 		}
 	}
+	//showImage();
 	if(right_lim) {
 		for(int i =0; i<infinate_image_view.size(); i++) {
 			infinate_image_view.set(i, infinate_image_view.get(i) + padding + padding);
 		}
 	}
-	
+	while(blank_line.length() < infinate_image_view.get(0).length()) {
+		blank_line += padding;
+	}
+	//showImage();
 	if(down_lim) {
 		for(int i =0; i<2; i++) {
 			infinate_image_view.add(blank_line);
 		}
 	}
+	//System.out.println("me?");showImage();
 	ArrayList<String> temp = new ArrayList<>(infinate_image_view.size()+2);
 	if(up_lim) {
 		for(int i =0; i<2; i++) {
@@ -203,9 +212,8 @@ private void expandView(int pos){
 		temp.addAll(infinate_image_view);
 		infinate_image_view = temp;
 	}
-	while(blank_line.length() < infinate_image_view.get(0).length()) {
-		blank_line += padding;
-	}
+	//showImage();
+	
 	replace(padding);
 	
 }
@@ -214,10 +222,18 @@ private void replace(String padding) {
 	for(int i =0; i<2;i++) {
 		infinate_image_view.set(i,blank_line);
 	}
+	showImage();
 	infinate_image_view.set(infinate_image_view.size()-1, blank_line);
 	infinate_image_view.set(infinate_image_view.size()-2, blank_line);
 	//to do left/right
-	
+	showImage();
+	for(int i =0; i<infinate_image_view.size();i++) {
+		String remove_left = infinate_image_view.get(i).substring(2);
+		String remove_right = remove_left.substring(0, remove_left.length()-2);
+		System.out.println("left: " + remove_left + " right: " + remove_right);
+		infinate_image_view.set(i, padding + padding + remove_right + padding + padding);
+	}
+	System.out.println("HOI");showImage();
 }
 	public boolean isAbove(int col) {
 		return col-2<0;
