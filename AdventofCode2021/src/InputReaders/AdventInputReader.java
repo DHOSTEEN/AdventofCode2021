@@ -30,6 +30,14 @@ public class AdventInputReader {
             e.printStackTrace();
         }
     }
+    public AdventInputReader(File filepath) {
+    	file_obj = filepath;
+    	 try{
+             obj_Reader = new Scanner(file_obj);
+      }catch(FileNotFoundException e){
+          e.printStackTrace();
+      }
+    }
 
     public Scanner getFile_obj() throws NullPointerException{
 
