@@ -9,7 +9,7 @@ public class TaskOneMain {
 	
 	private static Day22Reader obj;
 	//private static String file_location = "E:\\Netbeans\\AdventofCode2021\\AdventInputs\\AdventInput21_data.txt";
-	private static String filename = "test_data.txt";
+	private static String filename = "data.txt";
 	
 	public static void main(String[] args){
 		
@@ -21,6 +21,7 @@ public class TaskOneMain {
 			if(initailization(ar)) {
 				//System.out.println("am hashing");
 				//reac.inputCuboids(ar[0],ar[1], ar[2], ar[3], ar[4], ar[5], ar[6]);
+				//reac.inputSmartCuboids(ar[0],ar[1], ar[2], ar[3], ar[4], ar[5], ar[6]);
 			}
 		}
 		System.out.println(reac.numberOn());
@@ -41,6 +42,7 @@ public class TaskOneMain {
 		reac.inputSmartCuboids(0, 9, 11, 9, 11, 9, 11);
 		reac.inputSmartCuboids(1, 10, 10, 10, 10, 10, 10);
 		
+		System.out.println("ANS: " + reac.smartOn());
 	//	System.out.println("volume: "+ ( Math.abs(10 - (12+1)) * Math.abs(10 - (12+1)) * Math.abs(10 - (12+1))));
 	}
 	private static boolean initailization(Integer[] arr) {

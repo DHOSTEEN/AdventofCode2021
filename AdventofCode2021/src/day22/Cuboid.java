@@ -32,7 +32,7 @@ public class Cuboid {
 		
 		 volume = Math.abs(begin_x - (end_x+1)) * Math.abs(begin_y - (end_y+1)) * Math.abs(begin_z - (end_z+1));// ie number on/off
 		 if(!is_on) {
-			 volume = 0;
+			 volume = 0 - volume;
 		 }
 	}
 	
